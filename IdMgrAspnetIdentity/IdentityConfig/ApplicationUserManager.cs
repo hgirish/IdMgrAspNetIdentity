@@ -19,11 +19,12 @@ namespace IdMgrAspnetIdentity.IdentityConfig
         {
             var manager = new ApplicationUserManager(
                 new ApplicationUserStore(context.Get<ApplicationDbContext>()));
-
+           
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
-                RequireUniqueEmail = true
+                RequireUniqueEmail = true,
+                
             };
 
             manager.PasswordValidator = new PasswordValidator
